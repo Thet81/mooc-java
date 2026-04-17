@@ -20,6 +20,11 @@ class PaymentTerminalMain {
 		System.out.println("there was enough money : " + wasSuccessful);
 		wasSuccessful = unicafeExactum.eatHeartily(annesCard);
 		System.out.println("there was enough money : " + wasSuccessful);
+
+		unicafeExactum.addMoneyToCard(annesCard,100);
+
+		wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+		System.out.println("there was enough money : " + wasSuccessful);
 		System.out.println(unicafeExactum);
 		System.out.println(annesCard.balance());
 	}

@@ -49,6 +49,9 @@ class PaymentTerminal {
 		return 0;
 	}
 
+	public void addMoneyToCard(PaymentCard card, double sum ){
+		card.addMoney(sum);
+	}
 	@Override
 	public String toString() {
 		return "money : " + money + ", number of sold afforable meals " + affordableMeals + " heartyMeals " + heartyMeals;
