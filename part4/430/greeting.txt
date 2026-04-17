@@ -1,0 +1,2 @@
+hello world!
+This text file will be read by Java.
