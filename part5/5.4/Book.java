@@ -1,0 +1,35 @@
+// Book.java
+
+public class Book {
+	private String title;
+	private int publicationYear;
+
+	public Book(String name, int publicationYear){
+		this.title = name;
+		this.publicationYear = publicationYear;
+	}
+
+	public boolean equals(Object compared) {
+		if (this == compared) {
+			return true;
+		}
+
+		if(!(compared instanceof Book)){
+			return false;
+		}
+
+		Book comparedBook = (Book) compared;
+
+		 if (this.title.equals(comparedBook.title) &&
+			this.publicationYear == comparedBook.publicationYear
+			){
+		 	return true;
+		 }
+
+		 return false;
+	}
+
+	// public String toString() {
+	// 	return this.title;
+	// }
+}

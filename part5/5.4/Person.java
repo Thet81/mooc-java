@@ -42,6 +42,28 @@ public class Person {
 	public int getWeight () {
 		return this.weight;
 	}
+
+	public boolean equals(Person compared){
+		// if (this == compared){
+		// 	return true;
+		// }
+
+		if(!(compared instanceof Person)){
+			return false;
+		}
+
+		Person comparedPerson = (Person) compared;
+
+		if (this.name.equals(comparedPerson.name) && 
+			this.age == comparedPerson.age && 
+			this.height == comparedPerson.height &&
+			this.weight == comparedPerson.weight
+			){
+			return true;
+		}
+
+		return false;
+	}
 	@Override
 	public String toString(){
 		return this.name + ", age " + this.age ;
