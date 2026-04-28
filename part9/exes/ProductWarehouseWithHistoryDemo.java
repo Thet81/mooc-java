@@ -8,7 +8,8 @@ class ProductWarehouseWithHistoryDemo {
 	System.out.println(juice.getName());
 	juice.addToWarehouse(1.0);
 	System.out.println(juice);
-
-	System.out.println(juice.history());
+	juice.printAnalysis();
+	// System.out.println(juice.history());
 	}
+	
 }
