@@ -8,12 +8,12 @@ public class TripleTacoBox implements TacoBox{
 		this.tacos = 3;
 	}
 
-	public int tacosRemining(){
+	public int tacosRemaining(){
 		return this.tacos;
 	}
 
 	public void eat(){
-		if (this.tacos >= 0){
+		if (this.tacos > 0){
 			this.tacos -= 1;
 		}
 	}
