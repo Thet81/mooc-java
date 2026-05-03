@@ -1,7 +1,7 @@
 // Box.java
 import java.util.*;
 
-public class Box {
+public class Box implements Packable{
 
 	public static void main(String[] args) {
 		Box box = new Box(10);
@@ -16,6 +16,16 @@ public class Box {
 		box.add(new Book("James Doe","All programming in one book",10));
 
 		System.out.println(box);
+
+		Box two = new Box(20);
+		Box three = new Box(10);
+
+		box.add(new CD("Wigwam","Nuclear Nightclub",1975));
+		box.add(new CD("Ba Din","NayYar",1992));
+
+		two.add(box);
+		two.add(three);
+		System.out.println(two);
 	}
 	private double maxCapacity;
 	private ArrayList<Packable> packables;
