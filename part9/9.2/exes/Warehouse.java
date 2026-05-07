@@ -68,11 +68,10 @@ public class Warehouse {
 		return this.products.keySet();
 	}
 
-	public void price(String product){
+	public int price(String product){
 		if(!(this.products.containsKey(product))){
-			System.out.println(product + " : " + "-99");
-			return;
+			return -99;
 		}
-		System.out.println(product + " : " + this.products.get(product));
+		return this.products.get(product);
 	}
 }
