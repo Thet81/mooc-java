@@ -21,7 +21,7 @@ public class Organism implements Movable {
 
 	@Override
 	public String toString(){
-		return " x : " + this.x + "; " + this.y;
+		return " x : " + this.x + "; y : " + this.y;
 	}
 
 	@Override
