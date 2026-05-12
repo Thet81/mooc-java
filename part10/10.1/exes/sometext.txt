@@ -1,0 +1,4 @@
+
+This is a text file to be tested in file reading.
+This is the second line of the file.
+And get this, this is the third line ;)
