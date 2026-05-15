@@ -1,0 +1,4 @@
+afghanistan,female,23.87385
+central african republic,female,24.35529
+niger,female,11.01572
+mali,female,22.19578
