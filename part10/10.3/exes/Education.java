@@ -1,5 +1,5 @@
 // Education.java
 
 public enum Education {
-	PHD,MA,BA;
+	PHD,MA,BA,HS;
 }
