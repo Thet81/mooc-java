@@ -7,10 +7,10 @@ public class Card implements Comparable<Card>{
 		List<Card> cards = new ArrayList<>();
 
 		Card fifth = new Card(3,Suit.SPADE);
-		Card first = new Card(2, Suit.DIAMOND);
+		Card first = new Card(10, Suit.DIAMOND);
 		Card second = new Card(3, Suit.CLUB);
-		Card third = new Card(1, Suit.SPADE);
-		Card fourth = new Card(2, Suit.HEART);
+		Card third = new Card(14, Suit.SPADE);
+		Card fourth = new Card(12, Suit.HEART);
 		cards.add(first);
 		cards.add(second);
 		cards.add(third);
@@ -41,7 +41,10 @@ public class Card implements Comparable<Card>{
 
 	@Override
 	public String toString(){
-		return this.suit + " " + this.value;
+		if(this.value >= 10){
+			return this.suit + " " + this.suit.getCode();
+		}
+ 		return this.suit + " " + value;
 	}
 
 	public int getOrdinal (){
