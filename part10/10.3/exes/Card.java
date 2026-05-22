@@ -11,11 +11,13 @@ public class Card implements Comparable<Card>{
 		Card second = new Card(3, Suit.CLUB);
 		Card third = new Card(14, Suit.SPADE);
 		Card fourth = new Card(12, Suit.HEART);
+		Card sixth = new Card(11,Suit.SPADE);
 		cards.add(first);
 		cards.add(second);
 		cards.add(third);
 		cards.add(fourth);
 		cards.add(fifth);
+		cards.add(sixth);
 		// cards.stream().sorted().forEach(c -> System.out.println(c));
 		// System.out.println(first);
 		Collections.sort(cards);
