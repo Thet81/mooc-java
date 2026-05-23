@@ -1,15 +1,15 @@
 // Suit.java
 
 public enum Suit {
-	CLUB(""), DIAMOND("J"), HEART("Q"), SPADE("A");
+	CLUB("Club"), DIAMOND("Diamond"), HEART("Heart"), SPADE("Spade");
 
-	private String code;
+	private String name;
 
-	private Suit(String code){
-		this.code = code;
+	private Suit(String name){
+		this.name = name;
 	}
 
-	public String getCode (){
-		return this.code;
+	public String getName (){
+		return this.name;
 	}
 }

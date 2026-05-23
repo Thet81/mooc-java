@@ -40,13 +40,20 @@ public class Card implements Comparable<Card>{
 	public int getValue(){
 		return this.value;
 	}
-
+	
+	private String valueToString(){
+		return switch(this.value){
+			case 11 -> "J";
+			case 12 -> "Q";
+			case 13 -> "K";
+			case 14 -> "A";
+			default -> String.valueOf(this.value);
+		};
+	}
 	@Override
 	public String toString(){
-		if(this.value >= 10){
-			return this.suit + " " + this.suit.getCode();
-		}
- 		return this.suit + " " + value;
+		
+ 		return this.suit + " " + valueToString();
 	}
 
 	public int getOrdinal (){
