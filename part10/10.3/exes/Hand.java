@@ -54,8 +54,33 @@ public class Hand implements Comparable<Hand> {
 	}
 
 	public void sortBySuit(){
-		Collections.sort(this.cards,(c1,c2)-> c1.getSuit().ordinal() - c2.getSuit().ordinal());
+		Collections.sort(this.cards,(c1,c2)->{
+			if (c1.getOrdinal() == c2.getOrdinal()){
+				if(c1.getValue() == c2.getValue()){
+					return 0;
+				}else if (c1.getValue() > c2.getValue()){
+					return 1;
+				}else {
+					return -1;
+				}
+			}else if (c1.getOrdinal() > c2.getOrdinal()){
+				return 1;
+			}else {
+				return -1;
+			}
+			});
 	}
+
+	// public void sortBySuit(){
+	// 	Collections.sort(this.cards,(c1,c2)-> c1.getSuit().ordinal() - c2.getSuit().ordinal());
+	// }
+	// public void sortBySuit(){
+	// 	Comparator<Card> comparator = Comparator
+	// 		.comparing(Card::getValue)
+	// 		.thenComparing(Card::getOrdinal);
+
+	// 	Collections.sort(this.cards,comparator);
+	// }
 
 }
 
