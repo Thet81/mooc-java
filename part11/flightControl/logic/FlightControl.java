@@ -2,7 +2,7 @@
 
 package flightControl.logic;
 
-import java.utl.Collection;
+import java.util.Collection;
 import flightControl.domain.Flight;
 import flightControl.domain.Airplane;
 import flightControl.domain.Place;
@@ -26,11 +26,23 @@ public class FlightControl{
 		this.ariplanes.put(ID,plane);
 	}
 
-	public void addFlight(Ariplance plane, String depatureID, String destinationID){
+	public void addFlight(Airplane plane, String depatureID, String destinationID){
 		this.places.putIfAbsent(depatureID, new Place(depatureID));
 		this.places.putIfAbsent(destinationID, new Place(destinationID));
 
 		Flight flight = new Flight(plane, this.places.get(depatureID),this.places.get(destinationID));
 		this.flights.put(flight.toString(),flight);
+	}
+
+	public Collection<Airplane> getAriplanes(){
+		return this.ariplanes.values();
+	}
+
+	public Collection<Flight> getFlights(){
+		return this.flights.values();
+	}
+
+	public Airplane getAirplane(String ID){
+		return this.ariplanes.get(ID);
 	}
 }
