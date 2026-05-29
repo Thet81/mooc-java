@@ -34,7 +34,7 @@ public class FlightControl{
 		this.flights.put(flight.toString(),flight);
 	}
 
-	public Collection<Airplane> getAriplanes(){
+	public Collection<Airplane> getAirplanes(){
 		return this.ariplanes.values();
 	}
 
