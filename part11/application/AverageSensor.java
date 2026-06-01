@@ -12,9 +12,10 @@ public class AverageSensor implements Sensor{
 		avsensor.addSensor(tempOne);
 		avsensor.addSensor(tempTwo);
 		avsensor.setOn();
-		avsensor.setOff();
+		// avsensor.setOn();
 		System.out.println(avsensor.isOn());
 		System.out.println(avsensor.read());
+		System.out.println(avsensor.readings());
 	}
 	private List<Sensor> sensors;
 	private boolean isSensorOn;
@@ -63,5 +64,13 @@ public class AverageSensor implements Sensor{
 		for(Sensor sensor : this.sensors){
 			sensor.setOn();
 		}
+	}
+
+	public List<Integer> readings(){
+		List<Integer> readings = new ArrayList<>();
+		for(Sensor sensor : this.sensors){
+			readings.add(sensor.read());
+		}
+		return readings;
 	}
 }
