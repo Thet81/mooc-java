@@ -13,7 +13,7 @@ public class Dictionary {
 		return this.word;
 	}
 
-	public String getMeaning () {
+	public String getMeaning (String word) {
 		return this.meaning;
 	}
 }
