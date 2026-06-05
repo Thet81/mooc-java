@@ -1,3 +1,6 @@
-apina:monkey
-alla oleva:below
-olut:beer
+
+monkey:apina
+beer:alla oleva
+monkey:apina
+beer:alla oleva
+programming:ohjelmointi

@@ -1,10 +1,13 @@
 // Dictionary.java
 import java.util.*;
 import java.nio.file.*;
+import java.io.*;
 
 public class SaveableDictionary {
 	public static void main(String[] args) {
 		SaveableDictionary dict = new SaveableDictionary("dict.txt");
+		dict.add("apina","monkey");
+		dict.add("alla oleva","beer");
 		boolean wasSuccessful = dict.load();
 
 		if(wasSuccessful){
@@ -14,6 +17,8 @@ public class SaveableDictionary {
 		System.out.println(dict.translate("apina"));
 		System.out.println(dict.translate("ohjelmointi"));
 		System.out.println(dict.translate("alla oleva"));
+		dict.add("ohjelmointi","programming");
+		dict.save();
 	}
 	private HashMap<String,String> engs;
 	private HashMap<String,String> finnish;
@@ -69,6 +74,20 @@ public class SaveableDictionary {
 
 		this.engs.remove(toEng);
 		this.finnish.remove(toFinnish);
+	}
+
+	public boolean save(){
+		try {
+			FileWriter fileWriter = new FileWriter(file,true);
+			for(String key : this.engs.keySet()){
+				fileWriter.write("\n" + key + ":" + engs.get(key));
+			}
+			fileWriter.close();
+			return true;
+		}catch(Exception e){
+			System.out.println(e);
+			return false;
+		}
 	}
 
 }
