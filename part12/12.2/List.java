@@ -4,13 +4,13 @@ public class List<Type> {
 
 	public static void main(String[] args) {
 		List<String> myList = new List<>();
-		
-		// for(int i = 0; i < 11; i++){
-		// 	myList.add("hello");
-		// }
 		System.out.println(myList.contains("hello"));
 		myList.add("hello");
 		System.out.println(myList.contains("hello"));
+		int index = myList.indexOfValue("hello");
+		System.out.println(index);
+		System.out.println(myList.value(index));
+		myList.remove("hello");
 	}
 	private Type[] values;
 	private int firstFreeIndex;
@@ -41,22 +41,10 @@ public class List<Type> {
 	}
 
 	public boolean contains(Type value){
-		for(int i = 0; i < this.firstFreeIndex; i++){
-			if(this.values[i].equals(value)){
-				return true;
-			}
-		}
-		return false;
+		return indexOfValue(value) >= 0;
 	}
 
 	public void remove(Type value){
-		// for(int i = 0; i < this.firstFreeIndex; i++){
-		// 	if (value == this.values[i] || this.values[i].equals(value)){
-		// 		this.values[i] = null;
-		// 		this.firstFreeIndex--;
-		// 		return;
-		// 	}
-		// }
 		int indexOfValue = indexOfValue(value);
 		if(indexOfValue < 0){
 			return;
@@ -79,5 +67,16 @@ public class List<Type> {
 		for(int i = fromIndex; i < this.firstFreeIndex; i++){
 			this.values[i] = this.values[i+1];
 		}
+	}
+
+	public Type value(int index){
+		if (index < 0 || index >= this.firstFreeIndex){
+			throw new ArrayIndexOutOfBoundsException("Index" + index + "outside of the size of array");
+		}
+		return this.values[index];
+	}
+
+	public int size(){
+		return this.firstFreeIndex;
 	}
 }
