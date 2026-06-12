@@ -31,4 +31,29 @@ public class HashMap<K,V> {
 		}
 		return null;
 	}
+
+	public void add(K key, V value){
+		int hashValue = Math.abs(key.hashCode() % values.length);
+			if (values[hashValue] == null) {
+				values[hashValue] = new List<>();
+			}
+		List<Pair<K,V>> valuesAtIndex = values[hashValue];
+
+		int index = -1;
+		for(int i = 0; i < valuesAtIndex.size(); i++){
+			if (valuesAtIndex.value(i).getKey().equals(key)){
+				index = i;
+				break;
+			}
+		}
+
+		if(index < 0) {
+			// there is no value related to the key, so create a new one
+			valuesAtIndex.add(new Pair<>(key,value));
+			this.firstFreeIndex++;
+		}else {
+			// there is a value related to the provided key, so just update the value
+			valuesAtIndex.value(index).setValue(value);
+		}
+	}
 }
