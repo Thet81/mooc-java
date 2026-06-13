@@ -32,6 +32,7 @@ public class HashMap<K,V> {
 		return null;
 	}
 
+	/*
 	public void add(K key, V value){
 		int hashValue = Math.abs(key.hashCode() % values.length);
 			if (values[hashValue] == null) {
@@ -54,6 +55,36 @@ public class HashMap<K,V> {
 		}else {
 			// there is a value related to the provided key, so just update the value
 			valuesAtIndex.value(index).setValue(value);
+		}
+	}
+	*/
+
+	public List<Pair<K,V>> getListBasedOnKey(K key){
+		int hashValue = Math.abs(key.hashCode() % values.length);
+		if(values[hashValue] == null){
+			return null;
+		}
+		return values[hashValue];
+	}
+
+	private int getIndexOfKey(List<Pair<K,V>> myList, K key){
+		for (int i = 0; i < myList.length; i++){
+			if (myList.value(i).getKey().equals(key)){
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	public void add(K key, V value){
+		List<Pair<K,V>> valuesAtIndex = getListBasedOnKey(key);
+		int index = getIndexOfKey(valuesAtIndex, key);
+
+		if(index < 0){
+			valuesAtIndex.add(new Pair(key, value));
+			this.firstFreeIndex++;
+		}else {
+			valuesAtIndex.setValue(value);
 		}
 	}
 }
