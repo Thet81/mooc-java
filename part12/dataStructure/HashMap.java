@@ -86,5 +86,50 @@ public class HashMap<K,V> {
 		}else {
 			valuesAtIndex.setValue(value);
 		}
+
+		if(1.0 * this.firstFreeIndex / this.values.length > 0.75){
+			grow();
+		}
+	}
+
+	private void copy(List<Pair<K,V>>[] new Array, int fromIdx){
+		for (int i = 0; i < this.values[fromIdx].size(); i++){
+			Pair<K,V> value = this.values[fromIdx].value(i);
+
+			int hashValue = Math.abs(value.getKey().hashCode() % newArray.length);
+
+			if (newArray[hashValue] == null){
+				newArray[hashValue] = new List<>();
+			}
+
+			newArray[hashValue].add(value);
+		}
+	}
+
+	private void grow(){
+		List<Pair<K,V>>[] newArray = new List[this.values.length * 2];
+
+		for(let i = 0; i < this.values.length; i ++){
+			copy(newArray,i);
+		}
+		this.values = newArray;
+	}
+
+	public V remove(K key){
+		List<Pair<K,V>> valuesAtIndex = getListBasedOnKey(key);
+
+		if(valuesAtIndex.size() == 0){
+			return null;
+		}
+
+		int index = getIndexOfKey(valuesAtIndex,key);
+
+		if(index < 0){
+			return null;
+		}
+
+		Pair<K,V> pair = valuesAtIndex.value(index);
+		valuesAtIndex.remove(pair);
+		return pair.getValue();
 	}
 }
